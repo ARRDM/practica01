@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/RT/xhtml1-strict.dtd">
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xml:lang="es" lang="es" 
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" >
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <div><h1>Haga una petici&oacute;n</h1>
+            <p>N&uacute;mero de peticiones hechas:
+            #{anfitrion.contador}</p>
+            <p>Cadena manipulada:
+            "#{anfitrion.AManipular}"</p>
+            <h:form >
+                Cadena a manipular:
+                <h:inputText id="valor-cadena" binding="#{cadena}" />
+                <h:commandButton id="solicitar" value="Hacer petici&oacute;n"
+                                 action="#{anfitrion.atiende(cadena.value)}" />
+</h:form>
+            <hr/>
+            <p>Nachintoch estuvo aqu&iacute;</p>
+        </div>
+    </body>
+</html>
