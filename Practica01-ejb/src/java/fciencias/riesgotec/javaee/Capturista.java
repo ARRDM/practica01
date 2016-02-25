@@ -14,7 +14,7 @@ import javax.faces.context.FacesContext;
  * @author ricardo_rodab
  */
 @ApplicationScoped
-public class Anfitrion {
+public class Capturista {
     
     private int contador;
     private String aManipular;
