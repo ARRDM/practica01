@@ -1,11 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package fciencias.riesgotec.javaee;
 
 import javax.faces.bean.ApplicationScoped;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -18,8 +19,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name="venta")
 public class Venta {
-      
+    
     /** Llave primaria de la tabla venta. */
+    @Id
+    @Column(name = "id_venta")
     private int id;
     /** Anio de la venta. */
     private int anio;
@@ -28,8 +31,9 @@ public class Venta {
     /** Dia de la venta. */
     private int dia;
     /** Suma total de la venta. */
+    @Column(name = "total_venta")
     private double total;
-
+    
     /**
      * Constructor de la clase Venta.
      * @param id - El identificador primario.
@@ -49,8 +53,10 @@ public class Venta {
     /**
      * Constructor que se ofrece por completud.
      */
-    public Venta(){}
-
+    public Venta(){
+        this.id = -1;
+    }
+    
     /**
      * Regresa el identificador primario del objeto.
      * @return el id del objeto.
@@ -59,7 +65,7 @@ public class Venta {
     public int getId() {
         return id;
     }
-
+    
     /**
      * Nos regresa el año de la venta.
      * @return El año.
@@ -67,7 +73,7 @@ public class Venta {
     public int getAnio() {
         return anio;
     }
-
+    
     /**
      * Nos regresa el mes de la venta.
      * @return El mes.
@@ -75,7 +81,7 @@ public class Venta {
     public int getMes() {
         return mes;
     }
-
+    
     /**
      * Nos regresa el día de la venta.
      * @return El día.
@@ -83,7 +89,7 @@ public class Venta {
     public int getDia() {
         return dia;
     }
-
+    
     /**
      * Nos regresa la suma total de lo que se vendió.
      * @return El total.
@@ -91,7 +97,7 @@ public class Venta {
     public double getTotal() {
         return total;
     }
-
+    
     /**
      * Asigna un nuevo id al objeto.
      * @param id - El nuevo id.
@@ -99,7 +105,7 @@ public class Venta {
     public void setId(int id) {
         this.id = id;
     }
-
+    
     /**
      * Asigna un nuevo año al objeto.
      * @param anio El año.
@@ -107,7 +113,7 @@ public class Venta {
     public void setAnio(int anio) {
         this.anio = anio;
     }
-
+    
     /**
      * Asigna un nuevo mes al objeto.
      * @param mes - El nuevo mes.
@@ -115,7 +121,7 @@ public class Venta {
     public void setMes(int mes) {
         this.mes = mes;
     }
-
+    
     /**
      * Asigna un nuevo día al objeto.
      * @param dia - El nuevo día.
@@ -123,7 +129,7 @@ public class Venta {
     public void setDia(int dia) {
         this.dia = dia;
     }
-
+    
     /**
      * Asigna el total de venta al objeto.
      * @param total - El total de venta.
@@ -131,5 +137,5 @@ public class Venta {
     public void setTotal(double total) {
         this.total = total;
     }
-   
+    
 }

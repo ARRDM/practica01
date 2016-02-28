@@ -9,27 +9,31 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html" xml:lang="es" lang="es" 
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core" >
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <head>
-        <title>TODO supply a title</title>
+        <title>Titulo de la página</title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        <div>TODO write content</div>
+       <div>Titulo2</div>
         <div><h1>Haga una petici&oacute;n</h1>
             <p>N&uacute;mero de peticiones hechas:
-            #{anfitrion.contador}</p>
-            <p>Cadena manipulada:
-            "#{anfitrion.AManipular}"</p>
+            #{capturista.id}</p>            
             <h:form >
                 Cadena a manipular:
-                <h:inputText id="valor-cadena" binding="#{cadena}" />
+              <h:inputText id="valor-cadena" binding="#{cadena}" />
                 <h:commandButton id="solicitar" value="Hacer petici&oacute;n"
-                                 action="#{anfitrion.atiende(cadena.value)}" />
+                                 action="#{capturista.buscaNombre(cadena.value)}" />
 </h:form>
             <hr/>
+            <div>Titulo 3 </div> 
+         
+            <table>
+               #{capturista.buscaNombre("")}
+            </table>
             <p>Nachintoch estuvo aqu&iacute;</p>
-        </div>
+       </div>  
     </body>
 </html>
