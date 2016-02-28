@@ -17,23 +17,24 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-       <div>Titulo2</div>
+        <div>Titulo2</div>
         <div><h1>Haga una petici&oacute;n</h1>
             <p>N&uacute;mero de peticiones hechas:
-            #{capturista.id}</p>            
+                #{capturista.id}</p>            
             <h:form >
                 Cadena a manipular:
-              <h:inputText id="valor-cadena" binding="#{cadena}" />
+                <h:inputText id="valor-cadena" binding="#{id}" />
+                <h:inputText id="nombre" binding="#{nombre}" />/>
                 <h:commandButton id="solicitar" value="Hacer petici&oacute;n"
-                                 action="#{capturista.buscaNombre(cadena.value)}" />
-</h:form>
+                                 action="#{capturista.elimina(1)}" />
+            </h:form>
             <hr/>
             <div>Titulo 3 </div> 
-         
+            
             <table>
-               #{capturista.buscaNombre("")}
+                #{capturista.buscaNombre("ose").get(0).apellidoMaterno}
             </table>
             <p>Nachintoch estuvo aqu&iacute;</p>
-       </div>  
+        </div>  
     </body>
 </html>

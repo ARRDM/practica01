@@ -9,6 +9,9 @@
     <description>Agrega un capturista</description>
     <jta-data-source>jdbc/autoservicio</jta-data-source>
     <class>fciencias.riesgotec.javaee.Capturista</class>
+    <properties>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+    </properties>
   </persistence-unit> 
 
  <!--   <persistence-unit name="Practica01-warPU" transaction-type="JTA">
@@ -22,4 +25,5 @@
   
 
 
+  
   </persistence>

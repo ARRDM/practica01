@@ -12,11 +12,13 @@ import javax.faces.bean.ApplicationScoped;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Id;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.Table;
+import javax.transaction.Transactional;
 
 /**
  *
@@ -25,6 +27,7 @@ import javax.persistence.Table;
 @ApplicationScoped
 @Table(name="capturista")
 @Entity
+@Transactional
 /*@NamedQueries({
 @NamedQuery(name="Capturista.findAll",
 query="SELECT * FROM Capturista;")
@@ -78,7 +81,11 @@ public class Capturista {
      * Metodo constructor que se ofrece por completud.
      */
     public Capturista(){
-        this.id = -1;
+        this.id = 10;
+        this.nombre = "Luis";
+        this.apellidoMaterno = "Gomez";
+        this.apellidoPaterno = "Foo";
+               
     }
     
     /**
@@ -153,26 +160,36 @@ public class Capturista {
         this.apellidoMaterno = apellidoMaterno;
     }
     
-    public void agrega()throws IOException{
-        //Query agrega = em.createQuery();
-        //agrega.executeUpdate();
+    @Transactional
+    public void agrega(){
+        Capturista c = new Capturista(100, "Foo", "Goo", "Hoo");
+        em.persist(c);
     }
     
-    public String buscaNombre(String nombre){
+    @Transactional
+    public void elimina(int id){
+        em.remove(em.find(Capturista.class, id));
+    }
+    
+    /**
+     * Método que nos regresa una lista con nombres que se encuentren en la base.
+     * @param nombre - El nombre del capturista.
+     * @return Una lista con posibles matches.
+     */
+    public List buscaNombre(String nombre){
         Query query = em.createQuery("SELECT u.id,u.nombre,u.apellidoPaterno,u.apellidoMaterno"
-                + " FROM Capturista u",Capturista.class);
-        //.setMaxResults(10);
-        //Query q = em.createNativeQuery("SELECT * FROM capturista",Capturista.class);
-        // + " WHERE nombre_capturista LIKE %"+nombre+"%;");
+                + " FROM Capturista u WHERE u.nombre LIKE :nombreTemp"
+                ,Capturista.class).setParameter("nombreTemp", "%"+nombre+"%").setMaxResults(10);
         List<Object[]> rows = query.getResultList();
         List<Capturista> result = new ArrayList<>(rows.size());
+        //El cast de cada objeto del resultado a un objeto de tipo capturista.
         for (Object[] row : rows) {
             result.add(new Capturista((int) row[0],
                     (String) row[1],
                     (String) row[2],
                     (String) row[3]));            
         }
-            return result.get(0).nombre;
+            return result;
         //return "no";
     }
 } //Fin de Capturista.java
