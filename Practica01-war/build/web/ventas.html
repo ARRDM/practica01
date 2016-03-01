@@ -70,21 +70,21 @@
           <h1 class="text-center">Registra una nueva venta</h1>
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
-              
+                <form action="PostVenta.jsp" method="post">
         <h5>Nombre del capturista</h5>
         <input type="text" class="form-control" placeholder="Nombre">
         <br>
         <h5>ID del capturista</h5>
-        <input type="text" class="form-control" placeholder="ID capturista">
+        <input type="text" name="IdCapturista" class="form-control" placeholder="ID capturista">
         <br>
         <h5>Fecha</h5>
-        <input type="text" class="form-control" placeholder="Fecha">
+        <input type="text" name="fecha" class="form-control" placeholder="Fecha">
         <br>
         <h5>Total de venta</h5>
-        <input type="text" class="form-control" placeholder="Venta bruta">
+        <input type="text"  name="total" class="form-control" placeholder="Venta bruta">
         <br>
-        <button class="btn btn-primary">Registrar venta</button>
-        
+        <button class="btn btn-primary" type="submit" value="submit">Registrar venta</button>
+        </form>
             </div>
           </div>
         </div>

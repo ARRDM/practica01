@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/RT/xhtml1-strict.dtd">
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xml:lang="es" lang="es"  >
+    <head>
+        <title>Titulo de la página</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        
+        <div>
+            <h1> Agregar Nuevo Capturista</h1>
+            <form action="PostCapturista.jsp" method="post">
+                Nombre:<br>
+                    <input type="text" name="nombre" style="width: 200px" ></input></br>
+                ApellidoPaterno:<br>
+                    <input type="text" name="apellidoP" style="width: 200px" ></input></br>
+                ApellidoMaterno:<br>
+                    <input type="text" name="apellidoM" style="width: 200px" ></input></br>
+                Submit:<br>
+                    <input type="submit" value="Submit"></input></br>
+            </form>
+        </div>
+         <div>
+            <h1> Agregar Nueva Venta</h1>
+            <form action="PostVenta.jsp" method="post">
+                IdCapturista:<br>
+                    <input type="text" name="IdCapturista" style="width: 200px" ></input></br>
+                Total:<br>
+                    <input type="text" name="total" style="width: 200px" ></input></br>
+                Fecha mm/dd/aaaa:<br>
+                    <input type="text" name="fecha" style="width: 200px" ></input></br>
+                Submit:<br>
+                    <input type="submit" value="submit"></input></br>
+            </form>
+        </div>
+        <div>
+            <form action ="CalculaCorte.jsp" method="get">
+                Corte del día:<br></br>
+                Fecha:<br>
+                    <input type="text" name="fecha2" style="width: 200px"></input></br>
+                <input type="submit" value="submit"></input>
+            </form>
+        </div>
+        <!--<div>Para saber total neto e iva.</div>
+        <div><h1>Haga una petici&oacute;n</h1>
+            <p>N&uacute;mero de peticiones hechas:
+                {capturista.id}</p>            
+            <h:form >
+                Cadena a manipular:
+                <h:inputText id="valor-cadena" binding="{id}" />
+                <h:inputText id="nombre" binding="{nombre}" />/>
+                <h:commandButton id="solicitar" value="Hacer petici&oacute;n"
+                                 action="{capturista.agrega()}" />
+            </h:form>
+            <hr/>
+            <div>Titulo 3 </div> 
+            
+            <table>
+                {capturista.buscaNombre("ose").get(0).apellidoMaterno}
+            </table>
+            <p>Nachintoch estuvo aqu&iacute;</p>
+        </div>  -->
+    </body>
+</html>

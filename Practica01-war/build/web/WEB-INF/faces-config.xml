@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd" >
+    <managed-bean>
+        <managed-bean-name>capturista</managed-bean-name>
+        <managed-bean-class>fciencias.riesgotec.javaee.Capturista</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean> 
+        <managed-bean>
+        <managed-bean-name>venta</managed-bean-name>
+        <managed-bean-class>fciencias.riesgotec.javaee.Venta</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean> 
+</faces-config> 

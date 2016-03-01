@@ -62,15 +62,29 @@
       <div class="col-md-10 col-md-offset-1">
         <div class="well">
           <ul class="nav nav-tabs nav-justified">
-            <li> <a href="ventas.html">Nueva venta</a></li>
-            <li class="active"><a href="#Consulta">Consulta ventas</a></li>
+            <li class="active"> <a href="#Venta">Nueva venta</a></li>
+            <li><a href="consultas.html">Consulta ventas</a></li>
           </ul>
           <br>
           <br>
-          <h1 class="text-center">Ingresa los datos que quieres consultar</h1>
+          <h1 class="text-center">Registra una nueva venta</h1>
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
-              
+                <form action="PostVenta.jsp" method="post">
+        <h5>Nombre del capturista</h5>
+        <input type="text" class="form-control" placeholder="Nombre">
+        <br>
+        <h5>ID del capturista</h5>
+        <input type="text" name="IdCapturista" class="form-control" placeholder="ID capturista">
+        <br>
+        <h5>Fecha</h5>
+        <input type="text" name="fecha" class="form-control" placeholder="Fecha">
+        <br>
+        <h5>Total de venta</h5>
+        <input type="text"  name="total" class="form-control" placeholder="Venta bruta">
+        <br>
+        <button class="btn btn-primary" type="submit" value="submit">Registrar venta</button>
+        </form>
             </div>
           </div>
         </div>
