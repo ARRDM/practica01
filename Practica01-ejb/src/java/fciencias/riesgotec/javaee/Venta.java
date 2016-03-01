@@ -61,7 +61,6 @@ public class Venta {
      * Regresa el identificador primario del objeto.
      * @return el id del objeto.
      */
-    @Id
     public int getId() {
         return id;
     }
@@ -136,6 +135,14 @@ public class Venta {
      */
     public void setTotal(double total) {
         this.total = total;
+    }
+    
+    /**
+     * Método para sacar el iva.
+     * @return El iva total de esas ventas.
+     */
+    public double getIva(){
+        return this.getTotal()*.16;
     }
     
 }

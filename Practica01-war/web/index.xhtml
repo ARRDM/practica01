@@ -7,34 +7,45 @@ and open the template in the editor.
 -->
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html" xml:lang="es" lang="es" 
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core" 
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:h="http://java.sun.com/jsf/html" xml:lang="es" lang="es"  >
     <head>
         <title>Titulo de la página</title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        <div>Titulo2</div>
+        
+        <div>
+            <h1> Agregar Nuevo Capturista</h1>
+            <form action="JSP/Actions.jsp" method="post">
+                Nombre:<br>
+                    <input type="text" name="nombre" style="width: 200px"></br>
+                ApellidoPaterno:<br>
+                    <input type="text" name="apellidoP" style="width: 200px"></br>
+                ApellidoMaterno:<br>
+                    <input type="text" name="apellidoM" style="width: 200px"></br>
+                Submit:<br>
+                    <input type="submit" value="Submit"></br>
+            </form>
+        </div>
+        <!--<div>Para saber total neto e iva.</div>
         <div><h1>Haga una petici&oacute;n</h1>
             <p>N&uacute;mero de peticiones hechas:
-                #{capturista.id}</p>            
+                {capturista.id}</p>            
             <h:form >
                 Cadena a manipular:
-                <h:inputText id="valor-cadena" binding="#{id}" />
-                <h:inputText id="nombre" binding="#{nombre}" />/>
+                <h:inputText id="valor-cadena" binding="{id}" />
+                <h:inputText id="nombre" binding="{nombre}" />/>
                 <h:commandButton id="solicitar" value="Hacer petici&oacute;n"
-                                 action="#{capturista.elimina(1)}" />
+                                 action="{capturista.agrega()}" />
             </h:form>
             <hr/>
             <div>Titulo 3 </div> 
             
             <table>
-                #{capturista.buscaNombre("ose").get(0).apellidoMaterno}
+                {capturista.buscaNombre("ose").get(0).apellidoMaterno}
             </table>
             <p>Nachintoch estuvo aqu&iacute;</p>
-        </div>  
+        </div>  -->
     </body>
 </html>
