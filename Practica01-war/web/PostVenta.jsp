@@ -19,15 +19,18 @@
         
             int idCapturista = Integer.parseInt(request.getParameter("IdCapturista"));
             double total = Double.parseDouble(request.getParameter("total"));
-            String[] fecha = request.getParameter("fecha").split("/");
+             int dia = Integer.parseInt(request.getParameter("dia"));
+            int mes = Integer.parseInt(request.getParameter("mes"));
+            int anio = Integer.parseInt(request.getParameter("anio"));
             Capturista cap = new DataAccess().getCapturista(idCapturista);
+            System.out.println(cap.getId());
             Venta vent = new Venta();
             vent.setTotal(total);
-            vent.setMes(Integer.parseInt(fecha[0]));
-            vent.setDia(Integer.parseInt(fecha[1]));
-            vent.setAnio(Integer.parseInt(fecha[2]));
+            vent.setMes(mes);
+            vent.setDia(dia);
+            vent.setAnio(anio);
             new DataAccess().agregaVenta(cap, vent);
-            response.sendRedirect("/Practica01-war/ventas.html");
+            response.sendRedirect("/Practica01-war/ventas.jsp");
         %>
     </body>
 </html>

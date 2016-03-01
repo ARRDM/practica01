@@ -62,7 +62,7 @@
                 <div class="col-md-10 col-md-offset-1">
                     <div class="well">
                         <ul class="nav nav-tabs nav-justified">
-                            <li> <a href="ventas.html">Nueva venta</a></li>
+                            <li> <a href="ventas.jsp">Nueva venta</a></li>
                             <li><a href="consultas.html">Consulta ventas</a></li>
                             <li class="active"><a href="#">Registrar capturista</a></li>
                         </ul>
@@ -71,16 +71,16 @@
                         <h1 class="text-center">Ingresa los datos que solicita el registro</h1>
                         <div class="row">
                             <div class="col-md-10 col-md-offset-1">
-                                <form action="CalculaCorte.jsp" method="get">
+                                <form action="PostCapturista.jsp" method="post">
                                    
                                     <h5>Nombre</h5>
-                                    <input type="text" name="IdVenta" class="form-control" placeholder="Nombre del capturista">
+                                    <input type="text" name="nombre" class="form-control" placeholder="Nombre del capturista">
                                     <br>                                   
                                     <h5>Apellido paterno</h5>
-                                    <input type="text" name="IdVenta" class="form-control" placeholder="Apellido paterno del capturista">
+                                    <input type="text" name="apellidoP" class="form-control" placeholder="Apellido paterno del capturista">
                                     <br>                                   
                                     <h5>Apellido materno</h5>
-                                    <input type="text" name="IdVenta" class="form-control" placeholder="Apellido materno del capturista">
+                                    <input type="text" name="apellidoM" class="form-control" placeholder="Apellido materno del capturista">
                                     <br>                                   
                                     <button class="btn btn-primary" type="submit" value="submit">Terminar registro</button>
                                 </form>

@@ -12,8 +12,8 @@ apellido_materno_capturista VARCHAR(200)
 );
 
 CREATE TABLE venta_capturista(
-id_venta INTEGER NOT NULL,
-id_capturista INTEGER NOT NULL PRIMARY KEY,
+id_venta INTEGER NOT NULL PRIMARY KEY,
+id_capturista INTEGER NOT NULL,
 FOREIGN KEY (id_venta) REFERENCES venta(id_venta),
 FOREIGN KEY (id_capturista) REFERENCES capturista(id_capturista)
 );

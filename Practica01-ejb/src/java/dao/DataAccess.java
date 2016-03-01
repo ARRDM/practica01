@@ -132,6 +132,35 @@ public class DataAccess {
          return vent;
     }
     
+    /**
+     * 
+     * @param anio
+     * @param mes
+     * @param dia
+     * @return 
+     */
+      public Venta getVenta(int anio, int mes, int dia){
+        Venta vent = new Venta();
+         try {
+            PreparedStatement ps = DBUtils.getPreparedStatement("SELECT "
+                    + "u.id_venta,u.fecha_venta,u.total_venta"
+                    + " FROM venta AS u WHERE u.fecha_venta <= '"+anio+"-"+mes+"-"+dia+"' AND"
+                    + " u.fecha_venta >= '"+anio+"-"+mes+"-"+dia+"'");
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                Date fecha = rs.getDate(2); 
+              int id = rs.getInt(1);
+                vent = new Venta(id, anio,mes,dia,rs.getInt(3));                
+            }            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return vent;
+    }
+    
+    
     //Metodo privado que agrega una relación venta-capturista a la base de datos.
     private void agregaRelacion(int cap, int vent){
         try {

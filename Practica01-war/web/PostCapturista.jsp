@@ -23,7 +23,7 @@
             cap.setApellidoMaterno(apellidoMaterno);
             cap.setApellidoPaterno(apellidoPaterno);
             cap.agrega();     
-            response.sendRedirect("/Practica01-war/faces/index.xhtml");
+            response.sendRedirect("/Practica01-war/capturista.html");
         %>
         
     </body>

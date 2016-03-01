@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,7 +8,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         
-        <!-- AQUÍ VA EL TÍTULO DE LA PÁGINA -->
+        <!-- AQUÃ VA EL TÃTULO DE LA PÃGINA -->
         <title>MTY Store</title>
         
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -19,12 +20,12 @@
         <script src="docs/assets/js/ie-emulation-modes-warning.js"></script>
         
     </head>
-    
-    <!-- EMPIEZA EL DISEÑO 
+      
+    <!-- EMPIEZA EL DISEÃO 
       ========================================= -->
     <body>
-        <div class="container">
-            
+            <div class="container">
+      
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -37,10 +38,10 @@
                         </button>
                         <a class="navbar-brand" href="#">MTY Store</a>
                     </div>
-                    
+        
                     <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        
                         <form class="navbar-form navbar-right" role="search">
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Busca por id de venta">
@@ -48,7 +49,7 @@
                             <button type="submit" class="btn btn-default">Buscar</button>
                         </form>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#">Inicia sesión</a></li>
+                            <li><a href="#">Inicia sesiÃ³n</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
@@ -56,26 +57,32 @@
         </div>
         <br>
         <!-- Termina NAVBAR -->
-        
+    
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="well">
                         <ul class="nav nav-tabs nav-justified">
-                            <li> <a href="ventas.jsp">Nueva venta</a></li>
-                            <li class="active"><a href="#Consulta">Consulta ventas</a></li>
+                            <li class="active"> <a href="#Venta">Nueva venta</a></li>
+                            <li><a href="consultas.html">Consulta ventas</a></li>
                             <li><a href="capturista.html">Registrar capturista</a></li>
                         </ul>
                         <br>
                         <br>
-                        <h1 class="text-center">Ingresa los datos que quieres consultar</h1>
+                        <h1 class="text-center">Registra una nueva venta</h1>
                         <div class="row">
                             <div class="col-md-10 col-md-offset-1">
-                                    <form action="CalculaCorte.jsp" method="get">                               
+                                <body onload="form1.submit();">
+                                    
+                                    
+                                <form action="PostVenta.jsp" method="post">                                    
+                                    <h5>ID del capturista</h5>
+                                    <input type="text" name="IdCapturista" class="form-control" placeholder="ID capturista">
+                                    <br>
                                     <h5>Fecha:</h5>
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <h5>Dia</h5>
+                                            <h5>DÃ­a</h5>
                                             <select class="form-control" id="sel1" name="dia">
                                                  <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -166,15 +173,19 @@
                                         </div>
                                     </div>
                                     <br>
-                                    <button class="btn btn-primary" type="submit" value="submit">Datos de la venta</button>                                    
+                                    <h5>Total de venta</h5>
+                                    <input type="text"  name="total" class="form-control" placeholder="Venta bruta">
+                                    <br>
+                                    <button class="btn btn-primary" type="submit" value="submit">Registrar venta</button>
                                 </form>
+                                </body>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+      
         <div class="container">
             <br>
             <br>
@@ -182,8 +193,8 @@
                 <p>MTY Store 2016. Todos los derechos reservados.</p>
             </div>
         </div>
-        
-        
+    
+    
         <!-- JAVASCRIPT -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="bootstrap.min.js"></script>

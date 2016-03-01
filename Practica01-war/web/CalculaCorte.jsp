@@ -4,6 +4,7 @@
     Author     : ricardo_rodab
 --%>
 
+<%@page import="java.util.Date"%>
 <%@page import="fciencias.riesgotec.javaee.Venta"%>
 <%@page import="dao.DataAccess"%>
 <%@page import="fciencias.riesgotec.javaee.Capturista"%>
@@ -17,9 +18,11 @@
     <body>
         <%                         
             Venta venta = new Venta();
-            int id = Integer.parseInt(request.getParameter("IdVenta"));
-            venta.setId(id);
-            venta = new DataAccess().getVenta(venta.getId());
+            int dia = Integer.parseInt(request.getParameter("dia"));
+            int mes = Integer.parseInt(request.getParameter("mes"));
+            int anio = Integer.parseInt(request.getParameter("anio"));
+            //System.out.println(request.getParameter("dia") + " "+request.getParameter("mes")+" "+request.getParameter("anio"));       +     
+            venta = new DataAccess().getVenta(anio, mes, dia);
             double iva = venta.getIva();
             double neto = venta.getTotal()-iva;                
             %>
