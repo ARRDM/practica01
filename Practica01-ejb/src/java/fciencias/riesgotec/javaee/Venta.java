@@ -5,6 +5,7 @@
 */
 package fciencias.riesgotec.javaee;
 
+import dao.DataAccess;
 import javax.faces.bean.ApplicationScoped;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -54,7 +55,7 @@ public class Venta {
      * Constructor que se ofrece por completud.
      */
     public Venta(){
-        this.id = -1;
+        this.id = new DataAccess().getMaxIdVenta()+1;
     }
     
     /**

@@ -23,7 +23,7 @@ public class DBUtils {
         Class.forName("org.postgresql.Driver");
         String url = "jdbc:postgresql://127.0.0.1:5432/autoservicio";
         String user = "ricardo_rodab";
-        String password = "115820012007";
+        String password = "*contraseña*";
         Connection conexion = DriverManager.getConnection(url,user,password);
         ps = conexion.prepareStatement(sql);
         return ps;

@@ -22,7 +22,8 @@
             cap.setNombre(nombre);
             cap.setApellidoMaterno(apellidoMaterno);
             cap.setApellidoPaterno(apellidoPaterno);
-            cap.agrega();            
+            cap.agrega();     
+            response.sendRedirect("/Practica01-war/faces/index.xhtml");
         %>
         
     </body>

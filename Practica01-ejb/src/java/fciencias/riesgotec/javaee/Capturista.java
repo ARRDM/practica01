@@ -79,7 +79,7 @@ public class Capturista {
      * Metodo constructor que se ofrece por completud.
      */
     public Capturista(){
-        this.id = buscaMaxId();
+       this.id = (new DataAccess().getMaxIdCapturista())+1;
     }
     
     /**
@@ -156,9 +156,8 @@ public class Capturista {
     
     @Transactional
     public void agrega(){
-        Capturista c = new Capturista(100, "Foo", "Goo", "Hoo");
         DataAccess dao = new DataAccess();
-        dao.agregaCapturista(c);
+        dao.agregaCapturista(this);
     }
     
     @Transactional
@@ -186,28 +185,5 @@ public class Capturista {
         }
             return result;
     }
-    
-        /**
-     * Método que nos regresa el indice siguiente.
-     * @return La siguiente llave.
-     */
-    private int buscaMaxId(){
-        Query query = em.createQuery("SELECT u.id,u.nombre,u.apellidoPaterno,u.apellidoMaterno"
-                + " FROM Capturista u WHERE u.id = "
-                +"(SELECT MAX(d.id)"
-                + " FROM Capturista d)"
-                ,Capturista.class).setMaxResults(10);
-        List<Object[]> rows = query.getResultList();
-        List<Capturista> result = new ArrayList<>(rows.size());
-        //El cast de cada objeto del resultado a un objeto de tipo capturista.
-        for (Object[] row : rows) {
-            result.add(new Capturista((int) row[0],
-                    (String) row[1],
-                    (String) row[2],
-                    (String) row[3]));            
-        }
-        if(result.isEmpty())
-            return 1;
-        return result.get(0).id;
-    }
+   
 } //Fin de Capturista.java
