@@ -90,6 +90,29 @@ public class DataAccess {
         return all;
     }
     
+    public LinkedList<Venta> getAllVenta(){
+        LinkedList<Venta> all = new LinkedList<Venta>();
+        try {
+            PreparedStatement ps = DBUtils.getPreparedStatement("SELECT "
+                    + "u.id_venta,u.fecha_venta,u.total_venta"
+                    + " FROM venta AS u");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Date fecha = rs.getDate(2);
+                int anio,mes,dia;
+                anio = Integer.parseInt(fecha.toString().split("-")[0]);
+                mes = Integer.parseInt(fecha.toString().split("-")[1]);
+                dia = Integer.parseInt(fecha.toString().split("-")[2]);
+                all.add(new Venta(rs.getInt(1), anio,mes,dia,rs.getInt(3)));
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return all;
+    }
+    
     public int getMaxIdCapturista(){
         try {
             PreparedStatement ps = DBUtils.getPreparedStatement("SELECT "

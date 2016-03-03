@@ -6,6 +6,7 @@
 package fciencias.riesgotec.javaee;
 
 import dao.DataAccess;
+import java.util.Comparator;
 import javax.faces.bean.ApplicationScoped;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,7 +21,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="venta")
 public class Venta {
-    
+
     /** Llave primaria de la tabla venta. */
     @Id
     @Column(name = "id_venta")

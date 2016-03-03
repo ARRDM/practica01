@@ -18,4 +18,9 @@ and open the template in the editor.
         <managed-bean-class>fciencias.riesgotec.javaee.Venta</managed-bean-class>
         <managed-bean-scope>application</managed-bean-scope>
     </managed-bean> 
+        <managed-bean>
+        <managed-bean-name>generadorsvg</managed-bean-name>
+        <managed-bean-class>fciencias.riesgotec.javaee.GeneradorSVG</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean> 
 </faces-config> 
