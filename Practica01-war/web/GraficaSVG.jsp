@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%-- CODIGO JAVA --%>
+        
     </body>
 </html>

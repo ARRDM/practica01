@@ -1,3 +1,6 @@
+<%@page import="dao.DataAccess"%>
+<%@page import="fciencias.riesgotec.javaee.Capturista"%>
+<%@page import="java.util.LinkedList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,17 +75,33 @@
                         <h1 class="text-center">Registra una nueva venta</h1>
                         <div class="row">
                             <div class="col-md-10 col-md-offset-1">
-                                <body onload="form1.submit();">
-                                    
-                                    
-                                <form action="PostVenta.jsp" method="post">                                    
-                                    <h5>ID del capturista</h5>
-                                    <input type="text" name="IdCapturista" class="form-control" placeholder="ID capturista">
+                                <body onload="form1.submit();">                                   
+                                <form action="PostVenta.jsp" method="post">   
+                                                                        <h5>Capturista que hizo la venta</h5>
+                                    <select class="form-control" id="sel1" name="IdCapturista">
+                                    <% 
+                                        LinkedList<Capturista> all = new DataAccess().getAllCapturista();
+                                        if(all.isEmpty()){
+                                            %>
+                                            <option value="null">FAVOR DE DAR DE ALTA UN CAPTURISTA</option>
+                                            <%
+                                        }else{
+                                            for(int i = 0; i < all.size(); i++){                                     
+                                                %> 
+                                                <option value="<%= all.get(i).getId() %>">
+                                                    <%= all.get(i).getId() %>,<%= all.get(i).getNombre()%> <%= all.get(i).getApellidoPaterno() %>
+                                                </option>
+                                                
+                                                <% 
+                                            } 
+                                        }
+                                        %> 
+                                            </select>  
                                     <br>
                                     <h5>Fecha:</h5>
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <h5>DÃ­a</h5>
+                                            <h5>Día</h5>
                                             <select class="form-control" id="sel1" name="dia">
                                                  <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -136,7 +155,7 @@
                                             </select>
                                         </div>
                                         <div class="col-md-3">
-                                            <h5>Anio</h5>
+                                            <h5>Año</h5>
                                             <select class="form-control" id="sel1" name="anio">
                                                  <option value="1990">1990</option>
                                                 <option value="1991">1991</option>

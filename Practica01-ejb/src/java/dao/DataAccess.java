@@ -12,6 +12,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -61,13 +62,32 @@ public class DataAccess {
                     + " FROM venta AS d)");
             ResultSet rs = ps.executeQuery();
             if(rs.next())
-                return rs.getInt(1);           
+                return rs.getInt(1);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 0;
+    }
+    
+    public LinkedList<Capturista> getAllCapturista(){
+        LinkedList<Capturista> all = new LinkedList<Capturista>();
+        try {
+            PreparedStatement ps = DBUtils.getPreparedStatement("SELECT "
+                    + "u.id_capturista,u.nombre_capturista,u.apellido_paterno_ca"
+                    + "pturista,u.apellido_materno_capturista"
+                    + " FROM Capturista AS u");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+                all.add(new Capturista(rs.getInt(1), rs.getString(2), 
+                        rs.getString(3), rs.getString(4)));
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return all;
     }
     
     public int getMaxIdCapturista(){
@@ -80,7 +100,7 @@ public class DataAccess {
                     + " FROM capturista AS d)");
             ResultSet rs = ps.executeQuery();
             if(rs.next())
-                return rs.getInt(1);           
+                return rs.getInt(1);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -89,75 +109,75 @@ public class DataAccess {
         return 0;
     }
     
-        public Capturista getCapturista(int id){
+    public Capturista getCapturista(int id){
         Capturista cap = new Capturista();
-         try {
+        try {
             PreparedStatement ps = DBUtils.getPreparedStatement("SELECT "
                     + "u.id_capturista,u.nombre_capturista,u.apellido_paterno_ca"
                     + "pturista,u.apellido_materno_capturista"
                     + " FROM Capturista AS u WHERE u.id_capturista = "+id);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                cap = new Capturista(rs.getInt(1), rs.getString(2), 
-                        rs.getString(3), rs.getString(4));                
-            }            
+                cap = new Capturista(rs.getInt(1), rs.getString(2),
+                        rs.getString(3), rs.getString(4));
+            }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
-         return cap;
+        return cap;
     }
     
     public Venta getVenta(int id){
         Venta vent = new Venta();
-         try {
+        try {
             PreparedStatement ps = DBUtils.getPreparedStatement("SELECT "
                     + "u.id_venta,u.fecha_venta,u.total_venta"
                     + " FROM venta AS u WHERE u.id_venta = "+id);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                Date fecha = rs.getDate(2); 
+                Date fecha = rs.getDate(2);
                 int anio,mes,dia;
                 anio = Integer.parseInt(fecha.toString().split("-")[0]);
                 mes = Integer.parseInt(fecha.toString().split("-")[1]);
                 dia = Integer.parseInt(fecha.toString().split("-")[2]);
-                vent = new Venta(id, anio,mes,dia,rs.getInt(3));                
-            }            
+                vent = new Venta(id, anio,mes,dia,rs.getInt(3));
+            }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
-         return vent;
+        return vent;
     }
     
     /**
-     * 
+     *
      * @param anio
      * @param mes
      * @param dia
-     * @return 
+     * @return
      */
-      public Venta getVenta(int anio, int mes, int dia){
+    public Venta getVenta(int anio, int mes, int dia){
         Venta vent = new Venta();
-         try {
+        try {
             PreparedStatement ps = DBUtils.getPreparedStatement("SELECT "
                     + "u.id_venta,u.fecha_venta,u.total_venta"
                     + " FROM venta AS u WHERE u.fecha_venta <= '"+anio+"-"+mes+"-"+dia+"' AND"
                     + " u.fecha_venta >= '"+anio+"-"+mes+"-"+dia+"'");
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                Date fecha = rs.getDate(2); 
-              int id = rs.getInt(1);
-                vent = new Venta(id, anio,mes,dia,rs.getInt(3));                
-            }            
+                Date fecha = rs.getDate(2);
+                int id = rs.getInt(1);
+                vent = new Venta(id, anio,mes,dia,rs.getInt(3));
+            }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(DataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
-         return vent;
+        return vent;
     }
     
     

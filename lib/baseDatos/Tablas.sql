@@ -1,4 +1,8 @@
-﻿CREATE TABLE venta(
+﻿CREATE DATABASE autoservicio;
+
+\connect autoservicio
+
+CREATE TABLE venta(
 id_venta INTEGER NOT NULL PRIMARY KEY,
 fecha_venta DATE NOT NULL,
 total_venta DOUBLE PRECISION CHECK (total_venta >= 0)

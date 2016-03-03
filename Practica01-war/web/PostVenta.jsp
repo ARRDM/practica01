@@ -15,8 +15,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <% 
-        
+        <%         
             int idCapturista = Integer.parseInt(request.getParameter("IdCapturista"));
             double total = Double.parseDouble(request.getParameter("total"));
              int dia = Integer.parseInt(request.getParameter("dia"));
