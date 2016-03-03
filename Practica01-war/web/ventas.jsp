@@ -1,3 +1,9 @@
+<%-- 
+    Document   : Ventas
+    Created on : 01-mar-2016, 2:59:03
+    Author     : ricardo_rodab
+--%>
+
 <%@page import="dao.DataAccess"%>
 <%@page import="fciencias.riesgotec.javaee.Capturista"%>
 <%@page import="java.util.LinkedList"%>

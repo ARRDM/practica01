@@ -1,8 +1,30 @@
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
+/* -------------------------------------------------------------------
+ * DataAccess.java
+ * versión 1.0
+ * Copyright (C) 2016  ARRDM.
+ * Facultad de Ciencias,
+ * Universidad Nacional Autónoma de México, Mexico.
+ *
+ * Este programa es software libre; se puede redistribuir
+ * y/o modificar en los términos establecidos por la
+ * Licencia Pública General de GNU tal como fue publicada
+ * por la Free Software Foundation en la versión 2 o
+ * superior.
+ *
+ * Este programa es distribuido con la esperanza de que
+ * resulte de utilidad, pero SIN GARANTÍA ALGUNA; de hecho
+ * sin la garantía implícita de COMERCIALIZACIÓN o
+ * ADECUACIÓN PARA PROPÓSITOS PARTICULARES. Véase la
+ * Licencia Pública General de GNU para mayores detalles.
+ *
+ * Con este programa se debe haber recibido una copia de la
+ * Licencia Pública General de GNU, de no ser así, visite el
+ * siguiente URL:
+ * http://www.gnu.org/licenses/gpl.html
+ * o escriba a la Free Software Foundation Inc.,
+ * 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ * -------------------------------------------------------------------
+ */
 package dao;
 
 import db.DBUtils;
@@ -17,8 +39,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * @author ARRDM
+ * @version 1.0
+ * @since Mar 03 2016.
+ * <p>
+ * Clase que da el comportamiento de la base de datos.</p>
  *
- * @author ricardo_rodab
+ * <p>
+ * Desde esta clase podemos obtener el comportamiento deseado de la base de datos.</p>
  */
 public class DataAccess {
     
@@ -53,6 +81,10 @@ public class DataAccess {
         agregaRelacion(cap.getId(), vent.getId());
     }
     
+    /**
+     * Regresa el id maximo de la tabla ventas.
+     * @return El id más grandre.
+     */
     public int getMaxIdVenta(){
         try {
             PreparedStatement ps = DBUtils.getPreparedStatement("SELECT "
@@ -71,6 +103,10 @@ public class DataAccess {
         return 0;
     }
     
+    /**
+     * Metodo para obtener una lista con tooooodos los capturistas.
+     * @return La lista de los capturistas.
+     */
     public LinkedList<Capturista> getAllCapturista(){
         LinkedList<Capturista> all = new LinkedList<Capturista>();
         try {
@@ -90,6 +126,10 @@ public class DataAccess {
         return all;
     }
     
+    /**
+     * Metodo para obtener una lista con tooooodas las ventas.
+     * @return La lista de las ventas.
+     */
     public LinkedList<Venta> getAllVenta(){
         LinkedList<Venta> all = new LinkedList<Venta>();
         try {
@@ -113,6 +153,10 @@ public class DataAccess {
         return all;
     }
     
+    /**
+     * Metodo para obtener el maximo id de la tabla capturista.
+     * @return - el id más grande.
+     */
     public int getMaxIdCapturista(){
         try {
             PreparedStatement ps = DBUtils.getPreparedStatement("SELECT "
@@ -132,6 +176,11 @@ public class DataAccess {
         return 0;
     }
     
+    /**
+     * Metodo para obtener un capturista con un id específico.
+     * @param id - El id del capturista.
+     * @return  El objeto capturista.
+     */
     public Capturista getCapturista(int id){
         Capturista cap = new Capturista();
         try {
@@ -152,6 +201,11 @@ public class DataAccess {
         return cap;
     }
     
+    /**
+     * Metodo para obtener una venta con un id específico.
+     * @param id - El id de la venta.
+     * @return  El objeto vents.
+     */
     public Venta getVenta(int id){
         Venta vent = new Venta();
         try {
@@ -176,10 +230,10 @@ public class DataAccess {
     }
     
     /**
-     *
-     * @param anio
-     * @param mes
-     * @param dia
+     * Obtiene la venta especifica de un día.
+     * @param anio - El año de la venta
+     * @param mes - El mes de l venta.
+     * @param dia - el dia de la venta
      * @return
      */
     public Venta getVenta(int anio, int mes, int dia){
